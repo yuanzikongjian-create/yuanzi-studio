@@ -110,7 +110,8 @@ html[lang="en"] .btn{text-transform:uppercase;font-size:.8rem}
 /* 作品卡 / 身份卡 */
 .ip-card{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:4rem;align-items:start}
 .ip-card h2 a{color:var(--bone);text-decoration:none}
-.cover{aspect-ratio:2/3;width:100%}
+.cover{aspect-ratio:2/3;width:100%;overflow:hidden;background:#14110e}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:center}
 .tags{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:1.2rem 0 0;font-family:var(--ui);font-size:.8rem;letter-spacing:.08em}
 .tags li{border:1px solid rgba(201,169,106,.7);color:var(--gold);padding:.25em .9em}
 .chips{display:inline-flex;flex-wrap:wrap;justify-content:center;text-decoration:none;font-family:var(--ui);color:var(--bone);letter-spacing:var(--track-ui);font-size:.9rem}
@@ -234,4 +235,49 @@ html[lang="en"] .hero-title{font-size:2.1vw;letter-spacing:.03em;font-weight:500
 @media (prefers-reduced-motion:reduce){
   .plx{display:none!important}
   .js-plx .tagline,.js-plx .hero-title,.js-plx .hero-text .btns{animation:none}
+}
+
+
+/* 作品集列表 */
+.work-list{list-style:none;padding:0;margin:0;max-width:36em}
+.work-list li{margin:0 0 1.8rem;padding:0 0 1.5rem;border-bottom:1px solid var(--line)}
+.work-list li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.work-list h3{margin:0 0 .35em}
+.work-list p{margin:0 0 .35em}
+.social-links a + a{margin-left:.7em}
+
+/* 人物卡轮播：一次三张，中间彩色稍大，两侧灰度稍后叠成扇形 */
+.char-carousel.is-on .char-data{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.char-ui{display:flex;align-items:center;justify-content:center;gap:.15rem;user-select:none}
+.char-nav{flex:0 0 auto;width:2.4rem;height:2.6rem;border:1px solid var(--line);background:transparent;color:var(--gold);font-size:1.7rem;line-height:1;cursor:pointer;padding:0}
+.char-nav[hidden]{display:none}
+.char-stage{position:relative;flex:1 1 auto;width:min(100%,540px);height:430px;touch-action:pan-y}
+.char-slot{position:absolute;top:50%;left:50%;width:46%;aspect-ratio:3/4;padding:0;border:1px solid var(--line);background:#16130f;overflow:hidden;cursor:pointer;transform-origin:center center;transition:transform .35s ease,filter .35s ease}
+.char-slot img{width:100%;height:100%;object-fit:cover;object-position:center top;pointer-events:none}
+.char-slot.is-center{z-index:3;width:54%;transform:translate(-50%,-52%);border-color:rgba(201,169,106,.45);box-shadow:0 18px 40px rgba(0,0,0,.5);filter:none}
+.char-slot.is-left{z-index:2;transform:translate(-98%,-48%) scale(.84) rotate(-7deg);filter:grayscale(1)}
+.char-slot.is-right{z-index:1;transform:translate(-2%,-48%) scale(.84) rotate(7deg);filter:grayscale(1)}
+.char-ph{display:flex;align-items:center;justify-content:center;height:100%;padding:.8rem;color:var(--moss);font-family:var(--ui);font-size:.85rem;text-align:center;background:repeating-linear-gradient(135deg,#1a1713 0 12px,#14110e 12px 24px)}
+.char-caption{text-align:center;max-width:32em;margin:1.3rem auto 0}
+.char-caption h3{margin:0 0 .35em;color:var(--bone)}
+.char-caption p{margin:0;color:var(--moss)}
+.char-modal{position:fixed;inset:0;z-index:80}
+.char-modal[hidden]{display:none!important}
+.char-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78)}
+.char-modal-box{position:relative;z-index:1;max-width:920px;max-height:calc(100vh - 3rem);margin:1.5rem auto;background:var(--stone);border:1px solid var(--line);padding:1.2rem var(--pad) 2rem;overflow:auto}
+.char-modal-close{float:right;border:0;background:transparent;color:var(--bone);font-size:1.8rem;cursor:pointer;line-height:1;padding:.1em .25em}
+.char-modal-img{clear:both;margin:0 0 1.1rem}
+.char-modal-img img{width:100%;height:auto;object-fit:contain;max-height:70vh;margin:0 auto}
+.char-modal-box h3{margin:0 0 .4em}
+.char-modal-box p{margin:0;max-width:36em}
+@media (max-width:760px){
+  .char-stage{height:340px;width:100%}
+  .char-slot.is-center{width:58%}
+  .char-slot.is-left{transform:translate(-90%,-48%) scale(.78) rotate(-6deg)}
+  .char-slot.is-right{transform:translate(-10%,-48%) scale(.78) rotate(6deg)}
+  .char-nav{width:2rem;height:2.4rem}
+  .char-modal-box{margin:.6rem;max-height:calc(100vh - 1.2rem);padding:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .char-slot{transition:none}
 }
