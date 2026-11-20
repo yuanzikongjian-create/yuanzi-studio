@@ -182,6 +182,7 @@ html[lang="en"] .hero-title{font-size:2.1vw;letter-spacing:.03em;font-weight:500
   .spec dd{margin-bottom:.8em}
   .chips{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
   .chips span{border:1px solid var(--line)}
+  .chips span:first-child{border-left:1px solid var(--line)}
   .btns .btn,.cta-row .btn{flex:1 1 100%}
   .chars{grid-template-columns:1fr}
   .portrait{max-width:280px}
