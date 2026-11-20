@@ -69,6 +69,10 @@ html[lang="en"] .site-nav{text-transform:uppercase;font-size:.8rem}
 .site-nav a:hover{color:var(--gold)}
 .site-nav a[aria-current="page"]{color:var(--gold);border-bottom:1px solid var(--gold)}
 .lang{color:var(--moss)!important;font-family:var(--ui);letter-spacing:var(--track-ui)}
+.lang-bar{display:none}
+.related-links{list-style:none;margin:.9em 0 0;padding:0;display:flex;flex-direction:column;gap:.5em}
+.related-links a{color:var(--bone);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.12em;align-self:flex-start;font-family:var(--ui);font-size:.92rem;letter-spacing:var(--track-ui)}
+.related-links a:hover{color:var(--gold);border-color:var(--gold)}
 .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--bone);font-family:var(--ui);font-size:.85rem;letter-spacing:var(--track-ui);padding:.4em 1em;border-radius:0;cursor:pointer}
 
 /* 通用区块 */
@@ -163,7 +167,11 @@ html[lang="en"] .hero-title{font-size:2.1vw;letter-spacing:.03em;font-weight:500
   body{font-size:16px}
   html[lang="en"] body{font-size:18px}
   h1{font-size:clamp(1.9rem,8vw,2.5rem)}
-  .menu-btn{display:inline-block}
+  .menu-btn{display:inline-block;order:3;margin-left:.55rem}
+  .lang-bar{display:inline-block;order:2;margin-left:auto;padding:.4em 0;font-size:.85rem;white-space:nowrap}
+  .brand{order:1}
+  .site-nav{order:4}
+  .site-nav > .lang{display:none}
   .js .site-nav{display:none;width:100%}
   .js .site-nav.open{display:flex}
   .site-nav{flex-direction:column;align-items:flex-start;gap:.9rem;width:100%}
